@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+<h2>pass phrase by Sumanth Arrabelli</h2>
+
+<form>
+    <label for="secret_phrase">Enter the secret phrase</label>
+    <input type="password" id="phrase" value="let me in">
+    <br>
+    <br>
+    <label for="phrase_name">Enter a phrase</label>
+    <input type="text" id="phrase_text">
+    <br>
+    <br>
+    </form>
+    
+    <button class="btn btn-success" onclick="processPhrase()">Check the Phrase</button>
+    <p id="result"></p>
+
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+var correct = 0;
+    var wrong = 0;
+
+    function processPhrase(){
+        ph = document.getElementById("phrase").value
+        pt = document.getElementById("phrase_text").value
+        r = document.getElementById("result")
+        if(ph == pt){
+            correct+=1;
+            alert("Access allowed");
+            r.innerHTML = "RIGHT - "+correct;
+        }
+        else{
+            wrong+=1;
+            alert("Access denied");
+            r.innerHTML ="WRONG - "+ wrong;
+            
+        }
+    }
+</script>
+
+
+</body>
+</html> 
