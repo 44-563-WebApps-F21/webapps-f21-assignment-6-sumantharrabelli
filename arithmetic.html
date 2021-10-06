@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ 
+<title>Looping webpage</title>
+<body>
+
+<h2>Arrabelli Sumanth Computes</h2>
+
+<form>
+    <label for="form1_base">Enter a base </label>
+    <input type ="number" id="form1_base" name="form1_base" value=10> <br>
+
+    <label for="form1_exponent">Enter an exponent </label>
+    <input type ="number" id="form1_exponent" name="form1_exponent" value=2> <br>
+
+    <input type="button" onclick="powers()" value="Compute">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function powers (){
+        console.log("Getting form values")
+        base = document.getElementById("form1_base").value
+        exponent = document.getElementById("form1_exponent").value
+        var result = "Powers of " + base + " are: "
+        r = 1
+        out = document.getElementById("result")
+        for(i=1; i<=exponent; i++){
+            r *= base;
+            result += r + " "
+        }
+        out.innerHTML = result
+    }
+
+
+</script>
+
+</body>
+</html> 
