@@ -27,7 +27,7 @@
 <script> 
 var correct = 0;
     var wrong = 0;
-
+    var usingImage = 1;
     function processPhrase(){
         ph = document.getElementById("phrase").value
         pt = document.getElementById("phrase_text").value
@@ -44,8 +44,30 @@ var correct = 0;
             
         }
     }
+   function newImage() {
+       switch (usingImage) {
+           case 1:
+               document.getElementById("image1").src = "AfghanHound.jpg";
+               usingImage+=1;
+               break;
+               case 2:
+               document.getElementById("image1").src = "AmericanRacoon.jpg";
+               usingImage+=1;
+               break;
+               case 3:
+               document.getElementById("Image1").src = "BaleenWhale.jpeg";
+               usingImage+=1;
+               break;
+               default:
+               document.getElementById("Image1").src="AmericanRacoon.jpg";
+               usingImage+=1;
+               break;
+       }
+       
+   }
 </script>
-
-
+<div class="container">
+    <img src="BaleenWhale.jpeg" id="image1" alt="BaleenWhale" onclick="newImage()" style="width: 200px;height: 200px;">
+      </div>
 </body>
 </html> 
