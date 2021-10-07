@@ -5,6 +5,20 @@
 
 <h2>pass phrase by Sumanth Arrabelli</h2>
 
+<style>
+    h2 {
+        background-color: aqua;
+    }
+
+    label {
+        color: teal;
+    }
+
+    p {
+       color: cornflowerblue;
+    }
+</style>
+
 <form>
     <label for="secret_phrase">Enter the secret phrase</label>
     <input type="password" id="phrase" value="let me in">
@@ -27,6 +41,8 @@
 <script> 
 var correct = 0;
     var wrong = 0;
+    var countP = 0;
+    var countN = 0;
     var usingImage = 1;
     function processPhrase(){
         ph = document.getElementById("phrase").value
@@ -41,9 +57,17 @@ var correct = 0;
             wrong+=1;
             alert("Access denied");
             r.innerHTML ="WRONG - "+ wrong;
-            
+            if(countN >=3){
+                if(wrong>=3){
+                    incorrectPassPhrase();
+                }
+            }
         }
     }
+    function incorrectPassPhrase() {
+        alert("Account Locked");
+    }
+
    function newImage() {
        switch (usingImage) {
            case 1:
