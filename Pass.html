@@ -1,97 +1,101 @@
 <!DOCTYPE html>
 <html>
- 
+
 <body>
 
-<h2>pass phrase by Sumanth Arrabelli</h2>
+    <h2>pass phrase by Sumanth Arrabelli</h2>
 
-<style>
-    h2 {
-        background-color: aqua;
-    }
+    <style>
+        h2 {
+            background-color: aqua;
+        }
 
-    label {
-        color: teal;
-    }
+        label {
+            color: teal;
+        }
 
-    p {
-       color: cornflowerblue;
-    }
-</style>
+        p {
+            color: cornflowerblue;
+        }
+    </style>
 
-<form>
-    <label for="secret_phrase">Enter the secret phrase</label>
-    <input type="password" id="phrase" value="let me in">
-    <br>
-    <br>
-    <label for="phrase_name">Enter a phrase</label>
-    <input type="text" id="phrase_text">
-    <br>
-    <br>
+    <form>
+        <label for="secret_phrase">Enter the secret phrase</label>
+        <input type="password" id="phrase" value="let me in">
+        <br>
+        <br>
+        <label for="phrase_name">Enter a phrase</label>
+        <input type="text" id="phrase_text">
+        <br>
+        <br>
     </form>
-    
+
     <button class="btn btn-success" onclick="processPhrase()">Check the Phrase</button>
     <p id="result"></p>
 
-</form>
+    </form>
 
 
-<p id="result"></p>
+    <p id="result"></p>
 
-<script> 
-var correct = 0;
-    var wrong = 0;
-    var countP = 0;
-    var countN = 0;
-    var usingImage = 1;
-    function processPhrase(){
-        ph = document.getElementById("phrase").value
-        pt = document.getElementById("phrase_text").value
-        r = document.getElementById("result")
-        if(ph == pt){
-            correct+=1;
-            alert("Access allowed");
-            r.innerHTML = "RIGHT - "+correct;
-        }
-        else{
-            wrong+=1;
-            alert("Access denied");
-            r.innerHTML ="WRONG - "+ wrong;
-            if(countN >=3){
-                if(wrong>=3){
-                    incorrectPassPhrase();
+    <script>
+        var correct = 0;
+        var wrong = 0;
+        var countP = 0;
+        var countN = 0;
+        var usingImage = 1;
+        function processPhrase() {
+            ph = document.getElementById("phrase").value
+            pt = document.getElementById("phrase_text").value
+            r = document.getElementById("result")
+            if (ph == pt) {
+                correct += 1;
+                countN = 0;
+                alert("Access allowed");
+                r.innerHTML = "RIGHT - " + correct;
+            }
+            else {
+                wrong += 1;
+                alert("Access denied");
+                r.innerHTML = "WRONG - " + wrong;
+                countN++;
+                if (countN >= 3) {
+                    if (wrong >= 3) {
+                        incorrectPassPhrase();
+                    }
                 }
             }
         }
-    }
-    function incorrectPassPhrase() {
-        alert("Account Locked");
-    }
+        function incorrectPassPhrase() {
+            alert("Account Locked");
+        }
 
-   function newImage() {
-       switch (usingImage) {
-           case 1:
-               document.getElementById("image1").src = "AfghanHound.jpg";
-               usingImage+=1;
-               break;
-               case 2:
-               document.getElementById("image1").src = "AmericanRacoon.jpg";
-               usingImage+=1;
-               break;
-               case 3:
-               document.getElementById("Image1").src = "BaleenWhale.jpeg";
-               usingImage+=1;
-               break;
-               default:
-               document.getElementById("Image1").src="AmericanRacoon.jpg";
-               usingImage+=1;
-               break;
-       }
-       
-   }
-</script>
-<div class="container">
-    <img src="BaleenWhale.jpeg" id="image1" alt="BaleenWhale" onclick="newImage()" style="width: 200px;height: 200px;">
-      </div>
+        function newImage() {
+            switch (usingImage) {
+                case 1:
+                    document.getElementById("image1").src = "AfghanHound.jpg";
+                    usingImage += 1;
+                    break;
+                case 2:
+                    document.getElementById("image1").src = "AmericanRacoon.jpg";
+                    usingImage += 1;
+                    break;
+                case 3:
+                    document.getElementById("Image1").src = "BaleenWhale.jpeg";
+                    usingImage += 1;
+                    break;
+                default:
+                    document.getElementById("Image1").src = "AmericanRacoon.jpg";
+                    usingImage += 1;
+                    break;
+            }
+
+        }
+    </script>
+    <div class="container">
+        <img src="BaleenWhale.jpeg" id="image1" alt="BaleenWhale" onclick="newImage()"
+            style="width: 200px;height: 200px;">
+    </div>
 </body>
-</html> 
+
+</html>
